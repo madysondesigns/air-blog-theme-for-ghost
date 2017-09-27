@@ -9,25 +9,32 @@
    -----------------------------------------------------------------------------
    -----------------------------------------------------------------------------*/
 
+@import "normalize";
+@import "fontello";
+@import url('https://fonts.googleapis.com/css?family=Muli:400,600,800i,900i');
+
 
 // -----------------------------------------------------------------------------
 // Variables
 // -----------------------------------------------------------------------------
 
 	// Colours
-	$h-colour: #2a373d; // Heading Colour
+	$h-colour: #D0021B; // Heading Colour
 	$b-colour: #222222; // Body Colour
 	$s-colour: #979797; // Secondary Colour
+	$ko-colour: #ffffff;    // Knockout Colour
 
 	// Fonts
-	$h-font: 'Roboto', sans-serif; // Heading Font
-	$b-font: 'Noto Serif', serif; // Body Font
+	$h-font: 'Muli', sans-serif; // Heading Font
+	$b-font: 'Muli', serif; // Body Font
 	$icon-font: 'fontello';// Icon Font
 
 	// Font Weights
-	$light: 300;
-	$normal: 400;
-	$bold: 700;
+	/*$regular: 300;*/
+	$regular: 400;
+	$semi-bold: 700;
+	$extra-bold: 800;
+	$black: 900;
 
 
 
@@ -57,13 +64,14 @@
 body{
 	color: $b-colour;
 	font-family: $b-font;
-	font-weight: $normal;
+	font-weight: $regular;
 	transition:all 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6{
 	font-family: $h-font;
-	font-weight: $light;
+	font-weight: $extra-bold;
+	font-style: italic;
 }
 
 a{
@@ -77,9 +85,9 @@ a{
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{
-	color: $b-colour;
+	color: $h-colour;
 	&:hover{
-		color: lighten($b-colour, 50%);
+		color: lighten($h-colour, 50%);
 	}
 }
 
@@ -97,22 +105,27 @@ hr{
 
 
 .container {
-	margin:0 auto;
-	width: 1200px;
+	/*margin:0 auto;
+	width: 1200px;*/
 	padding: 50px 0 0 0;
 }
 
 .author {
 	text-align: center;
-	width: 25%;
+	/*width: 25%;
 	float: left;
-	margin: 20px 5% 0px 5%;
+	margin: 20px 5% 0px 5%;*/
+	margin-top: 50%;
 }
 
 .content{
-	width: 60%;
+	/*width: 60%;
 	margin-right: 5%;
-	float: right;
+	float: right;*/
+	width: 50%;
+    margin-right: 25%;
+    margin-top: 5%;
+    float: right;
 }
 
 
@@ -123,7 +136,8 @@ hr{
 
 
 .site-header{
-	background: $h-colour url(../img/header-bg.jpg) no-repeat center center; 
+	display: none;
+	/*background: $h-colour url(../img/header-bg.jpg) no-repeat center center; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -132,7 +146,7 @@ hr{
     text-align: center;
     position: relative;
     height: 400px;
-    transition:all 0.3s ease;
+    transition:all 0.3s ease;*/
 }
 
 .site-header h2{
@@ -141,7 +155,8 @@ hr{
 
 .site-header h2 .logo{
 	margin: 0;
-	background: url(../img/rriegger-logo.png) no-repeat 0 0;
+	/*background: url(../img/rriegger-logo.png) no-repeat 0 0;*/
+	background: url(../img/logo.png) no-repeat 0 0;
 	width: 179px;
 	height: 148px;
 	display: block;
@@ -150,7 +165,7 @@ hr{
 	left: 50%;
 	margin: -74px 0 0 -89px;
 
-	@include image-2x("../img/rriegger-logo@2x.png", 179px, 148px);
+	@include image-2x("../img/logo@2x.png", 179px, 148px);
 }
 
 
@@ -158,6 +173,8 @@ hr{
   -webkit-border-radius: 100%; 
   -moz-border-radius: 100%; 
   border-radius: 100%; 
+  width: 118px;
+  height: 118px;
 }
 
 
@@ -176,7 +193,7 @@ hr{
 
 .post h2 a,
 .post-template h1{
-	font-size: 44px;
+	font-size: 40px;
 	margin-bottom: 10px;
 }
 
@@ -186,7 +203,7 @@ hr{
 .post-template h5,
 .post-template h6{
 	font-family: $h-font;
-	font-weight: $bold;
+	font-weight: $semi-bold;
 }
 
 .post{
@@ -204,7 +221,7 @@ hr{
 .post-info{
 	color: lighten($b-colour, 50%);
 	font-family: $h-font;
-	font-weight: $light;
+	font-weight: $regular;
 	font-size: 18px;
 	margin-bottom: 40px;
 	line-height: 30px;
@@ -219,7 +236,7 @@ hr{
 .share-buttons li{
 	display: inline;
 	font-family: $h-font;
-	font-weight: $light;
+	font-weight: $regular;
 	font-size: 13px;
 	color: $s-colour;
 	margin-right: 4px; 
@@ -246,7 +263,7 @@ hr{
 
 .tag-title{
 	font-family: $h-font;
-	font-weight: $light;
+	font-weight: $regular;
 	border-bottom: 1px solid #ececec;
 	margin-bottom: 40px;
 }
@@ -287,7 +304,7 @@ hr{
   border-radius: 3px; 
   text-align: center;
   font-family: $h-font;
-  font-weight: $light;
+  font-weight: $regular;
   line-height: 35px;
   font-size: 13px;
   color: #000;
@@ -337,7 +354,7 @@ hr{
 	line-height: 35px;
 	font-size: 13px;
 	font-family: $h-font;
-	font-weight: $light;
+	font-weight: $regular;
 	color: $s-colour;
 }
 
@@ -348,7 +365,7 @@ hr{
 
 .author{
 	font-family: $h-font;
-	font-weight: $light;
+	font-weight: $regular;
 
 }
 
@@ -359,16 +376,31 @@ hr{
 } 
 
 .author p.name{
-	font-size: 14px;
+	font-size: 22px;
 	margin: 10px 0;
+	color: white;
+	font-weight: $black;
+	font-style: italic;
 }
 
+.author p.about {
+    font-family: $h-font;
+    width: 55%;
+    font-size: 16px;
+    margin: 10px auto;
+    color: $ko-colour; }
+
 .author p.address{
-	color: $s-colour;
+	color: $ko-colour;
 }
 
 .author p.link{
 	margin-bottom: 10px;
+	color: $ko-colour;  
+    margin-top:10px;
+    font-size:22px;
+    font-family: $h-font;
+    font-weight: $regular;
 }
 
 .author ul.social{
@@ -397,7 +429,7 @@ hr{
 	background-color: #f3f3f3;
 	text-align: center;
 	font-family: $h-font;
-	font-weight: $light;
+	font-weight: $regular;
 	color: lighten($b-colour, 50%);
 }
 .main-footer .container{
@@ -426,7 +458,7 @@ body.post-template > .site-header{
 
 
 body.post-template .site-header h2 .logo{
-	background: url(../img/rriegger-logo.png) no-repeat 0 0;
+	background: url(../img/logo.png) no-repeat 0 0;
 	width: 90px;
 	height: 74px;
 	margin: -45px 0 0 -37px;
@@ -440,10 +472,29 @@ body.post-template .site-header h2 .logo{
 // -----------------------------------------------------------------------------
 
 
-@media only screen and (min-width: 720px) and (max-width: 1199px) {
+@media only screen and (min-width: 800px) and (max-width: 1199px) {
 	.container {
 		width: 100%;
 	}
+ 
+   .content { 
+	    width:80%;
+	    margin-right: 15%;
+	    margin-top: 5%;
+	}
+}
+
+
+@media only screen and (min-width: 720px) and (max-width: 799px) {
+	.container {
+	    width: 100%; 
+	} 
+
+	.content { 
+	    width:80%;
+	    margin-right: 15%;
+	    margin-top: 5%;
+	} 
 }
 
 
@@ -469,14 +520,61 @@ body.post-template .site-header h2 .logo{
 	}
 
 	.site-header h2 .logo{
-		background: url(../img/rriegger-logo.png) no-repeat 0 0;
+		background: url(../img/logo.png) no-repeat 0 0;
 		width: 90px;
 		height: 74px;
 		margin: -45px 0 0 -37px;
 		background-size: 90px 74px;
 	}
 
+	.lateral {
+	   position: inherit !important;
+	   width: 100% !important;
+	   height: 450px !important; 
+	}
+	.home { 
+	   width:100% !important;
+	}
+	.post h2 a {
+	   font-size: 30px !important;
+	}
+	.post-info {
+	   font-size:15px !important;
+	}
+}
 
+.lateral {
+/*  background-color: #072035; */
+  height: 100%;
+  position: fixed;
+  width: 30%;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0e3d66+0,072035+100 */
+  background: #D0021B; /* Old browsers */
+
+  a {
+  	color: $ko-colour;
+
+  	&:hover {
+  		color: $s-colour;
+  	}
+  }
+}
+
+.home {
+  width: 70%;
+  float: right;
+}
+
+/*ul > li > a {
+  color: #c3c3c3;
+}
+
+ul > li > a:hover {
+   color: white;
+}
+*/
+.link > a:hover {
+       color: white;
 }
 
 

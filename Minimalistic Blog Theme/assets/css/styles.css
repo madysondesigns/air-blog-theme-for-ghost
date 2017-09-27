@@ -1,10 +1,21 @@
 @charset "UTF-8";
+/* -----------------------------------------------------------------------------
+   -----------------------------------------------------------------------------
+
+   Theme: Minimalist Theme
+   Version: 1.0
+   Author: Raphael Riegger (http://rriegger.com)
+   License: Apache License Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
+
+   -----------------------------------------------------------------------------
+   -----------------------------------------------------------------------------*/
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
+@import url("https://fonts.googleapis.com/css?family=Muli:400,600,800i,900i");
 html {
   font-family: sans-serif;
   /* 1 */
@@ -358,7 +369,7 @@ th {
 @font-face {
   font-family: 'fontello';
   src: url("../font/fontello.eot?40607460");
-  src: url("../font/fontello.eot?40607460#iefix") format("embedded-opentype"), url("../font/fontello.woff?40607460") format("woff"), url("../font/fontello.ttf?40607460") format("truetype"), url("../font/fontello.svg?40607460#fontello") format("svg");
+  src: url("../font/fontello.eot?40607460#iefix") format("embedded-opentype"), url("../font/fontello.woff?40607460") format("woff"), url("../font/fontello.ttf?40607460") format("truetype"), url("../font/ontello.svg?40607460#fontello") format("svg");
   font-weight: normal;
   font-style: normal; }
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
@@ -439,37 +450,29 @@ th {
   content: '\e80a'; }
 
 /* '' */
-/* -----------------------------------------------------------------------------
-   -----------------------------------------------------------------------------
-
-   Theme: Minimalist Theme
-   Version: 1.0
-   Author: Raphael Riegger (http://rriegger.com)
-   License: Apache License Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
-
-   -----------------------------------------------------------------------------
-   -----------------------------------------------------------------------------*/
+/*$regular: 300;*/
 body {
   color: #222222;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 300;
+  font-family: "Muli", serif;
+  font-weight: 400;
   transition: all 0.3s ease; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Roboto", sans-serif;
-  font-weight: bold; }
+  font-family: "Muli", sans-serif;
+  font-weight: 800;
+  font-style: italic; }
 
 a {
   text-decoration: none;
-  color: #cccccc;
+  color: #a2a2a2;
   transition: all 0.3s ease; }
   a:hover {
     color: #222222; }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  color: #222222; }
+  color: #D0021B; }
   h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
-    color: #a2a2a2; }
+    color: #ffd2d8; }
 
 hr {
   border: 0;
@@ -481,20 +484,21 @@ hr {
   font-size: 15px; }
 
 .container {
-  margin: 0 auto;
-/*  width: 1200px;
-  padding: 50px 0 0 0; } */
-}
+  /*margin:0 auto;
+  width: 1200px;*/
+  padding: 50px 0 0 0; }
 
 .author {
   text-align: center;
-/*  width: 25%;
+  /*width: 25%;
   float: left;
-  margin: 20px 5% 0px 5%; }*/
-  margin-top: 50%;
-}
+  margin: 20px 5% 0px 5%;*/
+  margin-top: 50%; }
 
 .content {
+  /*width: 60%;
+  margin-right: 5%;
+  float: right;*/
   width: 50%;
   margin-right: 25%;
   margin-top: 5%;
@@ -502,23 +506,23 @@ hr {
 
 .site-header {
   display: none;
-/*  background: #2a373d url(../img/header-bg.jpg) no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  color: #fff;
-  text-align: center;
-  position: relative;
-  height: 400px;
-  transition: all 0.3s ease; }*/
-}
+  	/*background: $h-colour url(../img/header-bg.jpg) no-repeat center center; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      position: relative;
+      height: 400px;
+      transition:all 0.3s ease;*/ }
 
 .site-header h2 {
   margin: 0; }
 
 .site-header h2 .logo {
   margin: 0;
+  /*background: url(../img/rriegger-logo.png) no-repeat 0 0;*/
   background: url(../img/logo.png) no-repeat 0 0;
   width: 179px;
   height: 148px;
@@ -535,10 +539,9 @@ hr {
 .profile-image {
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
-  border-radius: 100%; 
+  border-radius: 100%;
   width: 118px;
-  height: 118px;
-}
+  height: 118px; }
 
 .post h2 {
   margin-top: 0; }
@@ -556,7 +559,7 @@ hr {
 .post-template h4,
 .post-template h5,
 .post-template h6 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Muli", sans-serif;
   font-weight: 700; }
 
 .post {
@@ -570,8 +573,8 @@ hr {
 
 .post-info {
   color: #a2a2a2;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
+  font-family: "Muli", sans-serif;
+  font-weight: 400;
   font-size: 18px;
   margin-bottom: 40px;
   line-height: 30px; }
@@ -582,8 +585,8 @@ hr {
 
 .share-buttons li {
   display: inline;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
+  font-family: "Muli", sans-serif;
+  font-weight: 400;
   font-size: 13px;
   color: #979797;
   margin-right: 4px; }
@@ -601,8 +604,8 @@ hr {
   display: inline-block; }
 
 .tag-title {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
+  font-family: "Muli", sans-serif;
+  font-weight: 400;
   border-bottom: 1px solid #ececec;
   margin-bottom: 40px; }
 
@@ -632,27 +635,27 @@ hr {
   -moz-border-radius: 3px;
   border-radius: 3px;
   text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
+  font-family: "Muli", sans-serif;
+  font-weight: 400;
   line-height: 35px;
   font-size: 13px;
   color: #000; }
   .btn:hover {
-    background-color: #2a373d;
-    border-color: #2a373d;
+    background-color: #D0021B;
+    border-color: #D0021B;
     color: #FFF; }
 
 .post .btn {
   width: 140px; }
 
 .btn.btn-download {
-  background-color: #2a373d;
-  border-color: #2a373d;
+  background-color: #D0021B;
+  border-color: #D0021B;
   color: #FFF;
   width: 200px; }
   .btn.btn-download:hover {
-    background-color: #49606a;
-    border-color: #2a373d;
+    background-color: #fd223c;
+    border-color: #D0021B;
     color: #FFF; }
 
 .newer {
@@ -669,13 +672,13 @@ hr {
   text-align: center;
   line-height: 35px;
   font-size: 13px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
+  font-family: "Muli", sans-serif;
+  font-weight: 400;
   color: #979797; }
 
 .author {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300; }
+  font-family: "Muli", sans-serif;
+  font-weight: 400; }
 
 .author p {
   margin: 0;
@@ -685,25 +688,27 @@ hr {
 .author p.name {
   font-size: 22px;
   margin: 10px 0;
-  color: white; }
-
-.author p.address {
-  color: white; }
+  color: white;
+  font-weight: 900;
+  font-style: italic; }
 
 .author p.about {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Muli", sans-serif;
   width: 55%;
   font-size: 16px;
   margin: 10px auto;
-  color: #dddddd; }
+  color: #ffffff; }
+
+.author p.address {
+  color: #ffffff; }
 
 .author p.link {
-  margin-bottom: 10px; 
-  color: white;  
-  margin-top:10px;
-  font-size:22px;
-  font-family: Roboto;
-  font-weight: 300;}
+  margin-bottom: 10px;
+  color: #ffffff;
+  margin-top: 10px;
+  font-size: 22px;
+  font-family: "Muli", sans-serif;
+  font-weight: 400; }
 
 .author ul.social {
   list-style: none;
@@ -720,8 +725,8 @@ hr {
 .main-footer {
   background-color: #f3f3f3;
   text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
+  font-family: "Muli", sans-serif;
+  font-weight: 400;
   color: #a2a2a2; }
 
 .main-footer .container {
@@ -746,58 +751,34 @@ body.post-template .site-header h2 .logo {
   margin: -45px 0 0 -37px;
   background-size: 90px 74px; }
 
-
-.plane {
-  width:400px;
-  position: fixed;
-  margin-top: 70px;
-  z-index: 1;
-  
-}
-@media only screen and (min-width: 1200px) and (max-width: 1799px) {
-  .container {
-    width: 100%; } 
-
-  .plane {
-    width:300px;
-    margin-top: 30px;} }
-
 @media only screen and (min-width: 800px) and (max-width: 1199px) {
   .container {
-    width: 100%; } 
+    width: 100%; }
 
-  .plane {
-    width:250px;
-    margin-top: 20px;} 
-  .content { 
-    width:80%;
+  .content {
+    width: 80%;
     margin-right: 15%;
-    margin-top: 5%;}
-}
-
+    margin-top: 5%; } }
 @media only screen and (min-width: 720px) and (max-width: 799px) {
   .container {
-    width: 100%; } 
+    width: 100%; }
 
-  .plane {
-    width:200px;
-    margin-top: 20px;} 
-
-  .content { 
-    width:80%;
+  .content {
+    width: 80%;
     margin-right: 15%;
-    margin-top: 5%;} }
-
+    margin-top: 5%; } }
 @media only screen and (max-width: 719px) {
   .container {
     width: 90%;
     padding-top: 25px; }
+
   .author, .content {
     width: 100%;
     margin: 0; }
 
   .author {
-    padding-top: 60px; }
+    margin-bottom: 60px; }
+
   .site-header,
   body.post-template > .site-header {
     height: 180px;
@@ -808,22 +789,49 @@ body.post-template .site-header h2 .logo {
     width: 90px;
     height: 74px;
     margin: -45px 0 0 -37px;
-    background-size: 90px 74px; } 
+    background-size: 90px 74px; }
+
   .lateral {
     position: inherit !important;
     width: 100% !important;
     height: 450px !important; }
-  .home { 
-    width:100% !important;}
+
+  .home {
+    width: 100% !important; }
+
   .post h2 a {
-    font-size: 30px !important;}
+    font-size: 30px !important; }
+
   .post-info {
-    font-size:15px !important;}
-  .plane {
-    width:200px;
-    margin-top: 10px;
-    position:absolute;} }
+    font-size: 15px !important; } }
+.lateral {
+  /*  background-color: #072035; */
+  height: 100%;
+  position: fixed;
+  width: 30%;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0e3d66+0,072035+100 */
+  background: #D0021B;
+  /* Old browsers */ }
+  .lateral a {
+    color: #ffffff; }
+    .lateral a:hover {
+      color: #979797; }
+
+.home {
+  width: 70%;
+  float: right; }
+
+/*ul > li > a {
+  color: #c3c3c3;
 }
+
+ul > li > a:hover {
+   color: white;
+}
+*/
+.link > a:hover {
+  color: white; }
+
 .ir {
   background-color: transparent;
   border: 0;
@@ -845,34 +853,3 @@ body.post-template .site-header h2 .logo {
 
 .clearfix:after {
   clear: both; }
-
-.lateral {
-/*  background-color: #072035; */
-  height: 100%;
-  position: fixed;
-  width: 30%;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0e3d66+0,072035+100 */
-  background: #0e3d66; /* Old browsers */
-  background: -moz-linear-gradient(top,  #0e3d66 0%, #072035 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top,  #0e3d66 0%,#072035 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  #0e3d66 0%,#072035 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e3d66', endColorstr='#072035',GradientType=0 ); /* IE6-9 */
-
-}
-
-.home {
-  width: 70%;
-  float: right;
-}
-
-ul > li > a {
-  color: #c3c3c3;
-}
-
-  ul > li > a:hover {
-       color: white;
-  }
-
-.link > a:hover {
-       color: white;
-  }
