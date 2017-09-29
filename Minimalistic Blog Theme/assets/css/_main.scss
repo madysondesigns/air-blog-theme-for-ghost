@@ -1,9 +1,9 @@
 /* -----------------------------------------------------------------------------
    -----------------------------------------------------------------------------
 
-   Theme: Minimalist Theme
-   Version: 1.0
-   Author: Raphael Riegger (http://rriegger.com)
+   Theme: MD Custom Theme
+   Version: 0.0.1
+   Author: Sarah Whinnem
    License: Apache License Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
 
    -----------------------------------------------------------------------------
@@ -11,7 +11,7 @@
 
 @import "normalize";
 @import "fontello";
-@import url('https://fonts.googleapis.com/css?family=Muli:400,600,800i,900i');
+@import url('https://fonts.googleapis.com/css?family=Muli:300,300i,400,600,800i,900i');
 
 
 // -----------------------------------------------------------------------------
@@ -19,10 +19,11 @@
 // -----------------------------------------------------------------------------
 
 	// Colours
-	$h-colour: #D0021B; // Heading Colour
-	$b-colour: #222222; // Body Colour
-	$s-colour: #979797; // Secondary Colour
-	$ko-colour: #ffffff;    // Knockout Colour
+	$h-colour: #D0021B;  // Heading Colour
+	$b-colour: #666666;  // Body Colour
+	$s-colour: #000000;  // Secondary Colour
+	$ko-colour: #ffffff; // Knockout Colour
+	$border-colour: lighten($b-colour, 50%);
 
 	// Fonts
 	$h-font: 'Muli', sans-serif; // Heading Font
@@ -30,11 +31,17 @@
 	$icon-font: 'fontello';// Icon Font
 
 	// Font Weights
-	/*$regular: 300;*/
+	$light: 300;
 	$regular: 400;
-	$semi-bold: 700;
+	$semi-bold: 600;
 	$extra-bold: 800;
 	$black: 900;
+
+	$base-font-size: 10px;
+	$mobile-font-size: (50/6) + px;
+	$body-font-size: 1.8rem;
+	$h1-font-size: 4.8rem;
+	$meta-font-size: 1.4rem;
 
 
 
@@ -60,12 +67,27 @@
 // Global Styles
 // -----------------------------------------------------------------------------
 
+html {
+	font-size: $mobile-font-size;
+	height: 100%;
+}
 
 body{
+	background-color: #fff;
 	color: $b-colour;
+	font-size: $body-font-size;
+	line-height: 1.8;
 	font-family: $b-font;
-	font-weight: $regular;
+	font-weight: $light;
 	transition:all 0.3s ease;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+* {
+	font-family: inherit;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -76,10 +98,11 @@ h1, h2, h3, h4, h5, h6{
 
 a{
 	text-decoration: none;
-	color: lighten($b-colour, 50%);
+	color: $h-colour;
+	font-weight: $semi-bold;
 	transition:all 0.3s ease;
 	&:hover{
-		color: $b-colour;
+		color: lighten($h-colour, 10%);
 
 	}
 }
@@ -87,45 +110,92 @@ a{
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{
 	color: $h-colour;
 	&:hover{
-		color: lighten($h-colour, 50%);
+		color: lighten($h-colour, 10%);
 	}
 }
 
 hr{
 	border: 0;
-	border-top: 1px #E4E4E4 solid;
-	margin: 40px 0;
+	border-top: 3px $h-colour solid;
+	width: 3em;
+	margin: 40px auto;
 }
 
+blockquote {
+	position: relative;
+	font-size: 1.5em;
+	line-height: 1.5;
+	font-weight: $light;
+	font-style: italic;
+	color: $s-colour;
 
-.post ul li{
-	line-height: 28px;
-	font-size: 15px;
+	&:before {
+		content: '“';
+		font-size: 3em;
+		color: $border-colour;
+		position: absolute;
+		top: -0.25em;
+		left: -0.65em;
+	}
 }
 
-
-.container {
-	/*margin:0 auto;
-	width: 1200px;*/
-	padding: 50px 0 0 0;
+iframe {
+	max-width: 100%;
 }
 
-.author {
-	text-align: center;
-	/*width: 25%;
-	float: left;
-	margin: 20px 5% 0px 5%;*/
-	margin-top: 50%;
+ul, ol {
+	list-style-type: none;
+	padding-left: 0;
+	counter-reset: custom-counter;
+	margin-bottom: 2em;
+
+	li {
+		position: relative;
+		margin: 1em 0;
+	
+		&:before {
+			position: absolute;
+			top: 0.25em;
+		    left: -1.5em;
+			counter-increment: custom-counter;
+			color: $h-colour;
+			font-size: $meta-font-size;
+		}
+	}
+
+	p {
+		display: inline;
+		margin: 0;
+	}
+}
+
+ul li:before {
+	content: counter(custom-counter, disc);
+}
+
+ol li:before {
+	content: counter(custom-counter, decimal);
+	top: 0.4em;
+	font-weight: $extra-bold;
+	font-style: italic;
+}
+
+.social {
+	a {
+		padding: 5px;
+		font-size: 24px;
+	}
+}
+
+.home {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: space-between;
 }
 
 .content{
-	/*width: 60%;
-	margin-right: 5%;
-	float: right;*/
-	width: 50%;
-    margin-right: 25%;
-    margin-top: 5%;
-    float: right;
+    margin-top: 10%;;
 }
 
 
@@ -134,47 +204,106 @@ hr{
 // Header
 // -----------------------------------------------------------------------------
 
+header {
+	background-color: $h-colour;
+	color: $ko-colour;
+	text-align: center;
+	padding-top: 1em;
 
-.site-header{
-	display: none;
-	/*background: $h-colour url(../img/header-bg.jpg) no-repeat center center; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    color: #fff;
-    text-align: center;
-    position: relative;
-    height: 400px;
-    transition:all 0.3s ease;*/
+	a {
+		color: $ko-colour;
+		font-weight: $semi-bold;
+		font-style: italic;
+
+		&:hover {
+			color: $s-colour;
+		}
+	}
+
+	.profile-image {
+		-webkit-border-radius: 50%; 
+		-moz-border-radius: 50%; 
+		border-radius: 50%; 
+		width: 180px;
+		height: 180px;
+	}
+
+
+	.name {
+		font-size: 2.8rem;
+		margin: 0;
+		color: white;
+		font-weight: $black;
+		font-style: italic;
+	}
+
+	.about {
+	    font-size: 13px;
+	    font-weight: $regular;
+	    line-height: 1.5;
+	    margin: 2em;
+	}
+
+	.links {
+		margin: 2em;
+
+		a {
+			display: block;
+
+			&:not(:last-child):after {
+				content: '';
+				display: block;
+				margin: 0.35em auto;
+				width: 1em;
+				height: 0;
+				border-bottom: 1px solid #fff;
+			}
+		}
+	}
 }
 
-.site-header h2{
-	margin: 0;
-}
+@media only screen and (max-width: 719px) {
 
-.site-header h2 .logo{
-	margin: 0;
-	/*background: url(../img/rriegger-logo.png) no-repeat 0 0;*/
-	background: url(../img/logo.png) no-repeat 0 0;
-	width: 179px;
-	height: 148px;
-	display: block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: -74px 0 0 -89px;
+	header {
+		text-align: left;
+		padding: 1em 10vw;
+		position: relative;
 
-	@include image-2x("../img/logo@2x.png", 179px, 148px);
-}
+		.profile-image {
+		  	width: 44px;
+		  	height: 44px;
+	  	    position: absolute;
+		    right: 6vw;
+		}
 
+		.name {
+			font-size: 2.4rem;
+			margin-top: 0.75em;
+		}
 
-.profile-image{
-  -webkit-border-radius: 100%; 
-  -moz-border-radius: 100%; 
-  border-radius: 100%; 
-  width: 118px;
-  height: 118px;
+		.about, .social {
+			display: none;
+		}
+
+		.links {
+			margin: 0;
+			font-size: 1.6rem;
+		}
+
+		.links a {
+			display: inline-block;
+
+			&:not(:last-child):after  {
+				content: '·';
+				text-align: center;
+				display: inline-block;
+				margin: 0 0 0 0.1em;
+				height: auto;
+				border-bottom: none;
+			}
+		}
+	}
+
 }
 
 
@@ -187,14 +316,9 @@ hr{
 	margin-top: 0;
 }
 
-.post p{
-	line-height: 28px;
-}
-
 .post h2 a,
 .post-template h1{
-	font-size: 40px;
-	margin-bottom: 10px;
+	line-height: 1.2;
 }
 
 .post-template h2,
@@ -202,51 +326,34 @@ hr{
 .post-template h4,
 .post-template h5,
 .post-template h6{
-	font-family: $h-font;
+	margin-top: 2em;
 	font-weight: $semi-bold;
+	color: $s-colour;
 }
 
-.post{
-	margin-bottom: 60px;
-	padding-bottom: 60px;
-	border-bottom: 1px solid #ececec;
+.post, .post-list {
+	width: 80vw;
+	margin: 0 auto;
 }
-
 
 .post img{
 	max-width: 100%;
 	height: auto;
+
+	&[src$="#full"] {
+        max-width: 100vw;
+        position: relative;
+	    left: 50%;
+	    margin-left: -50vw;
+	}
 }
 
 .post-info{
-	color: lighten($b-colour, 50%);
-	font-family: $h-font;
-	font-weight: $regular;
-	font-size: 18px;
-	margin-bottom: 40px;
-	line-height: 30px;
-}
-
-
-.share-buttons{
-	list-style: none;
-	padding: 0;
-}
-
-.share-buttons li{
-	display: inline;
-	font-family: $h-font;
-	font-weight: $regular;
-	font-size: 13px;
 	color: $s-colour;
-	margin-right: 4px; 
+	font-weight: $regular;
+	font-size: $meta-font-size;
+	margin-top: 40px;
 }
-
-.share-buttons li a{
-	font-size: 15px;
-}
-
-
 
 .comments{
 	margin-bottom: 60px;
@@ -262,9 +369,8 @@ hr{
 
 
 .tag-title{
-	font-family: $h-font;
 	font-weight: $regular;
-	border-bottom: 1px solid #ececec;
+	border-bottom: 1px solid $border-colour;
 	margin-bottom: 40px;
 }
 
@@ -286,14 +392,14 @@ hr{
 // Pagination
 // -----------------------------------------------------------------------------
 
-.pagination{
+.pagination {
 	position: relative;
 	height: 35px;
-	width: 100%;
-	margin-bottom: 60px;
+	width: 40vw;
+	margin: 0 auto 60px;
 }
 
-.btn{
+.btn {
   border: solid 1px rgb( 236, 236, 236 );
   background-color: #FFF;
   width: 100px;
@@ -303,11 +409,10 @@ hr{
   -moz-border-radius: 3px; 
   border-radius: 3px; 
   text-align: center;
-  font-family: $h-font;
   font-weight: $regular;
   line-height: 35px;
   font-size: 13px;
-  color: #000;
+  color: $s-colour;
 
   &:hover{
   	background-color: $h-colour;
@@ -317,13 +422,13 @@ hr{
 }
 
 
-.post .btn{
+.post .btn {
 	width: 140px;
 	
 }
 
 
-.btn.btn-download{
+.btn.btn-download {
 	background-color: $h-colour;
   	border-color: $h-colour;
   	color: #FFF;
@@ -337,244 +442,122 @@ hr{
 }
 
 
-.newer{
+.newer {
 	position: absolute;
 	left: 0;
 	top: 0;
 }
 
-.older{
+.older {
 	position: absolute;
 	right: 0;
 	top: 0;
 }
 
-.counter{
+.counter {
 	text-align: center;
 	line-height: 35px;
 	font-size: 13px;
-	font-family: $h-font;
 	font-weight: $regular;
 	color: $s-colour;
 }
 
 
 // -----------------------------------------------------------------------------
-// Sidebar
+// Post List
 // -----------------------------------------------------------------------------
 
-.author{
-	font-family: $h-font;
-	font-weight: $regular;
+.post-list {
+	margin: 3em auto;
 
+	h3 {
+		margin: 0;
+	}
+
+	a {
+		display: block;
+		position: relative;
+
+		&:before {
+			position: absolute;
+			top: 0.25em;
+		    left: -1.5em;
+		    content: counter(custom-counter, disc);
+			counter-increment: custom-counter;
+			color: $h-colour;
+			font-size: $meta-font-size;
+		}
+	}
 }
-
-.author p{
-	margin: 0;
-	padding: 0;
-	font-size: 12px;
-} 
-
-.author p.name{
-	font-size: 22px;
-	margin: 10px 0;
-	color: white;
-	font-weight: $black;
-	font-style: italic;
-}
-
-.author p.about {
-    font-family: $h-font;
-    width: 55%;
-    font-size: 16px;
-    margin: 10px auto;
-    color: $ko-colour; }
-
-.author p.address{
-	color: $ko-colour;
-}
-
-.author p.link{
-	margin-bottom: 10px;
-	color: $ko-colour;  
-    margin-top:10px;
-    font-size:22px;
-    font-family: $h-font;
-    font-weight: $regular;
-}
-
-.author ul.social{
-	list-style: none;
-	display: inline;
-	padding: 0;
-}
-
-.author ul.social li{
-	display: inline;
-}
-
-.author ul.social li a{
-	padding: 5px;
-	font-size: 20px;
-
-	
-}
-
 
 // -----------------------------------------------------------------------------
 // Footer
 // -----------------------------------------------------------------------------
 
-.main-footer{
-	background-color: #f3f3f3;
+footer{
+	background-color: lighten($b-colour, 57%);;
 	text-align: center;
-	font-family: $h-font;
 	font-weight: $regular;
-	color: lighten($b-colour, 50%);
-}
-.main-footer .container{
-	padding: 30px 0;
-}
+	color: $b-colour;
+	padding: 1em 10vw;
 
-.main-footer a{
-	color: lighten($b-colour, 50%);
-	&:hover{
+	p {
+		font-size: $meta-font-size;
+	}
+
+	a{
 		color: $b-colour;
+		&:hover{
+			color: $h-colour;
+		}
 	}
 }
-.main-footer p{
-	font-size: 11px;
+
+@media only screen and (min-width: 720px) {
+
+	footer .social {
+		display: none;
+	}
 }
-
-// -----------------------------------------------------------------------------
-// Post page
-// -----------------------------------------------------------------------------
-
-
-body.post-template > .site-header{
-    height: 250px;
-    transition:all 0.3s ease;
-}
-
-
-body.post-template .site-header h2 .logo{
-	background: url(../img/logo.png) no-repeat 0 0;
-	width: 90px;
-	height: 74px;
-	margin: -45px 0 0 -37px;
-	background-size: 90px 74px;
-}
-
 
 
 // -----------------------------------------------------------------------------
 // Responsive Styles
 // -----------------------------------------------------------------------------
 
-
-@media only screen and (min-width: 800px) and (max-width: 1199px) {
-	.container {
-		width: 100%;
-	}
- 
-   .content { 
-	    width:80%;
-	    margin-right: 15%;
-	    margin-top: 5%;
-	}
-}
-
-
-@media only screen and (min-width: 720px) and (max-width: 799px) {
-	.container {
-	    width: 100%; 
-	} 
-
-	.content { 
-	    width:80%;
-	    margin-right: 15%;
-	    margin-top: 5%;
-	} 
-}
-
-
-@media only screen and (max-width: 719px) {
-	.container{
-		width: 90%;
-		padding-top: 25px;
+@media only screen and (min-width: 720px) { 
+	html {
+		font-size: 10px;
 	}
 
-	.author, .content{
-		width: 100%;
-		margin: 0;
+	body {
+		flex-direction: row;
+		font-size: $body-font-size;
 	}
 
-	.author{
-		margin-bottom: 60px; 
+	header {
+	  width: 30vw;
+	  padding-top: 10em;
 	}
 
-	.site-header,
-	body.post-template > .site-header{
-	    height: 180px;
-	    transition:all 0.3s ease;
+	.home {
+	  width: 70vw;
 	}
 
-	.site-header h2 .logo{
-		background: url(../img/logo.png) no-repeat 0 0;
-		width: 90px;
-		height: 74px;
-		margin: -45px 0 0 -37px;
-		background-size: 90px 74px;
+    .post, .post-list { 
+	    width: 50vw;
 	}
 
-	.lateral {
-	   position: inherit !important;
-	   width: 100% !important;
-	   height: 450px !important; 
-	}
-	.home { 
-	   width:100% !important;
-	}
-	.post h2 a {
-	   font-size: 30px !important;
-	}
-	.post-info {
-	   font-size:15px !important;
+	.post img[src$="#full"] {
+        max-width: 70vw;
+	    margin-left: -35vw;
 	}
 }
 
-.lateral {
-/*  background-color: #072035; */
-  height: 100%;
-  position: fixed;
-  width: 30%;
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0e3d66+0,072035+100 */
-  background: #D0021B; /* Old browsers */
-
-  a {
-  	color: $ko-colour;
-
-  	&:hover {
-  		color: $s-colour;
-  	}
-  }
-}
-
-.home {
-  width: 70%;
-  float: right;
-}
-
-/*ul > li > a {
-  color: #c3c3c3;
-}
-
-ul > li > a:hover {
-   color: white;
-}
-*/
-.link > a:hover {
-       color: white;
+@media only screen and (min-width: 1000px) {
+	.post, .post-list { 
+	    width: 40vw;
+	}
 }
 
 
@@ -594,15 +577,4 @@ ul > li > a:hover {
     display: block;
     width: 0;
     height: 150%;
-}
-
-
-.clearfix:before,
-.clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.clearfix:after {
-    clear: both;
 }
