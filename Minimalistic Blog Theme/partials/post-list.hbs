@@ -1,5 +1,5 @@
-{{#is "post, page"}}
-	{{#get "posts" filter="id:-{{post.id}}+slug:-about"}}
+{{#is "post"}}
+	{{#get "posts" filter="id:-{{post.id}}"}}
 		<nav class="post-list">
 		  <h2>Case Studies:</h2>
 
@@ -10,7 +10,7 @@
 		</nav>
 	{{/get}}
 {{else}}
-	{{#get "posts" filter="slug:-about"}}
+	{{#get "posts"}}
 		<nav class="post-list">
 		  <h2>Case Studies:</h2>
 
