@@ -219,7 +219,7 @@ header {
 		font-style: italic;
 
 		&:hover {
-			color: $s-colour;
+			color: lighten($s-colour, 80%);
 		}
 	}
 
@@ -233,6 +233,7 @@ header {
 
 
 	.name {
+		display: block;
 		font-size: 2.8rem;
 		margin: 0;
 		color: white;

@@ -1,10 +1,23 @@
-<nav class="post-list">
-  <h2>Case Studies:</h2>
+{{#is "post, page"}}
+	{{#get "posts" filter="id:-{{post.id}}+slug:-about"}}
+		<nav class="post-list">
+		  <h2>Case Studies:</h2>
 
-{{#get "posts"}}
-{{#foreach posts}}  
-  <h3><a href="{{url}}" title="{{title}}">{{title}}</a></h3>
-{{/foreach}}
-{{/get}}
+			{{#foreach posts}}  
+			  <h3><a href="{{url}}" title="{{title}}">{{title}}</a></h3>
+			{{/foreach}}
 
-</nav>
+		</nav>
+	{{/get}}
+{{else}}
+	{{#get "posts" filter="slug:-about"}}
+		<nav class="post-list">
+		  <h2>Case Studies:</h2>
+
+			{{#foreach posts}}  
+			  <h3><a href="{{url}}" title="{{title}}">{{title}}</a></h3>
+			{{/foreach}}
+
+		</nav>
+	{{/get}}
+{{/is}}

@@ -18,12 +18,10 @@
 <body>
   <header>
     <img class="profile-image" src="{{asset "img/sarah-photo.jpg"}}" alt="" />
-    <p class="name">Sarah Whinnem</p>
-    <nav class="links">
-      <a href="/about" title="About Me" target="_blank">About Me</a>
-      <a href="/" title="Case Studies" target="_blank">Case Studies</a>
-      <a href="http://resume.madysondesigns.com/" title="Resume" target="_blank">Resume</a>
-    </nav>
+    <a href="/" class="name">Sarah Whinnem</a>
+
+    {{navigation}}
+
     {{> social}}
   </header>
   <div class="{{body_class}} home">

@@ -7,6 +7,6 @@
   },
   "description": "Madyson Designs Portfolio",
   "config": {
-    "posts_per_page": 0
+    "posts_per_page": 100
   }
 }
