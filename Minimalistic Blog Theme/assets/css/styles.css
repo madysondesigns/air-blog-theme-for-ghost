@@ -482,7 +482,13 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Muli", sans-serif;
   font-weight: 800;
-  font-style: italic; }
+  font-style: italic;
+  line-height: 1.25;
+  color: #D0021B; }
+  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: inherit; }
+    h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+      color: #fd0826; }
 
 a {
   text-decoration: none;
@@ -490,11 +496,6 @@ a {
   font-weight: 600;
   transition: all 0.3s ease; }
   a:hover {
-    color: #fd0826; }
-
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  color: #D0021B; }
-  h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
     color: #fd0826; }
 
 hr {
@@ -531,7 +532,7 @@ ul, ol {
     margin: 1em 0; }
     ul li:before, ol li:before {
       position: absolute;
-      top: 0.25em;
+      top: 0.3em;
       left: -1.5em;
       counter-increment: custom-counter;
       color: #D0021B;
@@ -541,7 +542,7 @@ ul, ol {
     margin: 0; }
 
 ul li:before {
-  content: counter(custom-counter,disc); }
+  content: counter(custom-counter,square); }
 
 ol li:before {
   content: counter(custom-counter,decimal);
@@ -585,11 +586,6 @@ header {
     color: white;
     font-weight: 900;
     font-style: italic; }
-  header .about {
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.5;
-    margin: 2em; }
   header .links {
     margin: 2em; }
     header .links a {
@@ -615,7 +611,7 @@ header {
     header .name {
       font-size: 2.4rem;
       margin-top: 0.75em; }
-    header .about, header .social {
+    header .social {
       display: none; }
     header .links {
       margin: 0;
@@ -629,25 +625,25 @@ header {
         margin: 0 0 0 0.1em;
         height: auto;
         border-bottom: none; } }
-.post h2 {
-  margin-top: 0; }
+.intro .btn {
+  display: inline-block;
+  margin-left: 1em; }
 
-.post h2 a,
-.post-template h1 {
-  line-height: 1.2; }
-
-.post-template h2,
-.post-template h3,
-.post-template h4,
-.post-template h5,
-.post-template h6 {
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
   margin-top: 2em;
   font-weight: 600;
   color: #000000; }
 
-.post, .post-list {
+.intro, .post, .post-list {
   width: 80vw;
   margin: 0 auto; }
+
+.post {
+  margin-bottom: 10%; }
 
 .post img {
   max-width: 100%;
@@ -744,27 +740,34 @@ header {
   color: #000000; }
 
 .post-list {
-  margin: 3em auto; }
+  flex-grow: 1; }
   .post-list h3 {
-    margin: 0; }
-  .post-list a {
-    display: block;
-    position: relative; }
-    .post-list a:before {
-      position: absolute;
-      top: 0.25em;
-      left: -1.5em;
-      content: counter(custom-counter,disc);
-      counter-increment: custom-counter;
-      color: #D0021B;
-      font-size: 1.4rem; }
+    margin: 0.5em 0; }
+    .post-list h3 a {
+      font-size: 2rem;
+      color: #000000;
+      display: block;
+      position: relative; }
+      .post-list h3 a:before {
+        position: absolute;
+        top: 0.3em;
+        left: -1.5em;
+        content: counter(custom-counter,square);
+        counter-increment: custom-counter;
+        color: #D0021B;
+        font-size: 1.4rem;
+        font-weight: 300;
+        font-style: normal; }
+      .post-list h3 a:hover {
+        color: #D0021B; }
 
 footer {
   background-color: #f7f7f7;
   text-align: center;
   font-weight: 400;
   color: #666666;
-  padding: 1em 10vw; }
+  padding: 1em 10vw;
+  margin-top: 12%; }
   footer p {
     font-size: 1.4rem; }
   footer a {
@@ -790,14 +793,14 @@ footer {
   .home {
     width: 70vw; }
 
-  .post, .post-list {
+  .intro, .post, .post-list {
     width: 50vw; }
 
   .post img[src$="#full"] {
     max-width: 70vw;
     margin-left: -35vw; } }
 @media only screen and (min-width: 1000px) {
-  .post, .post-list {
+  .intro, .post, .post-list {
     width: 40vw; } }
 .ir {
   background-color: transparent;

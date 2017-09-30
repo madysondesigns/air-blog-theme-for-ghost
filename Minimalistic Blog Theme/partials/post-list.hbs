@@ -1,9 +1,9 @@
 <nav class="post-list">
-  <h3>More Case Studies:</h3>
+  <h2>Case Studies:</h2>
 
 {{#get "posts"}}
 {{#foreach posts}}  
-  <a href="{{url}}" title="{{title}}">{{title}}</a>
+  <h3><a href="{{url}}" title="{{title}}">{{title}}</a></h3>
 {{/foreach}}
 {{/get}}
 

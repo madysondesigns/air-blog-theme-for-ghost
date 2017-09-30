@@ -41,6 +41,7 @@
 	$mobile-font-size: (50/6) + px;
 	$body-font-size: 1.8rem;
 	$h1-font-size: 4.8rem;
+	$post-list-font-size: 2rem;
 	$meta-font-size: 1.4rem;
 
 
@@ -94,6 +95,15 @@ h1, h2, h3, h4, h5, h6{
 	font-family: $h-font;
 	font-weight: $extra-bold;
 	font-style: italic;
+	line-height: 1.25;
+	color: $h-colour;
+
+	& a {
+		color: inherit;
+		&:hover{
+			color: lighten($h-colour, 10%);
+		}
+	}
 }
 
 a{
@@ -104,13 +114,6 @@ a{
 	&:hover{
 		color: lighten($h-colour, 10%);
 
-	}
-}
-
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{
-	color: $h-colour;
-	&:hover{
-		color: lighten($h-colour, 10%);
 	}
 }
 
@@ -155,7 +158,7 @@ ul, ol {
 	
 		&:before {
 			position: absolute;
-			top: 0.25em;
+			top: 0.3em;
 		    left: -1.5em;
 			counter-increment: custom-counter;
 			color: $h-colour;
@@ -170,7 +173,7 @@ ul, ol {
 }
 
 ul li:before {
-	content: counter(custom-counter, disc);
+	content: counter(custom-counter, square);
 }
 
 ol li:before {
@@ -195,7 +198,7 @@ ol li:before {
 }
 
 .content{
-    margin-top: 10%;;
+    margin-top: 10%;
 }
 
 
@@ -237,13 +240,6 @@ header {
 		font-style: italic;
 	}
 
-	.about {
-	    font-size: 13px;
-	    font-weight: $regular;
-	    line-height: 1.5;
-	    margin: 2em;
-	}
-
 	.links {
 		margin: 2em;
 
@@ -281,7 +277,7 @@ header {
 			margin-top: 0.75em;
 		}
 
-		.about, .social {
+		.social {
 			display: none;
 		}
 
@@ -311,29 +307,28 @@ header {
 // Articles
 // -----------------------------------------------------------------------------
 
-
-.post h2{
-	margin-top: 0;
+.intro .btn {
+	display: inline-block;
+	margin-left: 1em;
 }
 
-.post h2 a,
-.post-template h1{
-	line-height: 1.2;
-}
-
-.post-template h2,
-.post-template h3,
-.post-template h4,
-.post-template h5,
-.post-template h6{
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6{
 	margin-top: 2em;
 	font-weight: $semi-bold;
 	color: $s-colour;
 }
 
-.post, .post-list {
+.intro, .post, .post-list {
 	width: 80vw;
 	margin: 0 auto;
+}
+
+.post {
+	margin-bottom: 10%;
 }
 
 .post img{
@@ -468,24 +463,32 @@ header {
 // -----------------------------------------------------------------------------
 
 .post-list {
-	margin: 3em auto;
+	flex-grow: 1;
 
 	h3 {
-		margin: 0;
-	}
+		margin: 0.5em 0;
 
-	a {
-		display: block;
-		position: relative;
+		a {
+			font-size: $post-list-font-size;
+			color: $s-colour;
+			display: block;
+			position: relative;
 
-		&:before {
-			position: absolute;
-			top: 0.25em;
-		    left: -1.5em;
-		    content: counter(custom-counter, disc);
-			counter-increment: custom-counter;
-			color: $h-colour;
-			font-size: $meta-font-size;
+			&:before {
+				position: absolute;
+				top: 0.3em;
+			    left: -1.5em;
+			    content: counter(custom-counter, square);
+				counter-increment: custom-counter;
+				color: $h-colour;
+				font-size: $meta-font-size;
+				font-weight: $light;
+				font-style: normal;
+			}
+
+			&:hover {
+				color: $h-colour;
+			}
 		}
 	}
 }
@@ -500,6 +503,7 @@ footer{
 	font-weight: $regular;
 	color: $b-colour;
 	padding: 1em 10vw;
+	margin-top: 12%;
 
 	p {
 		font-size: $meta-font-size;
@@ -544,7 +548,7 @@ footer{
 	  width: 70vw;
 	}
 
-    .post, .post-list { 
+    .intro, .post, .post-list { 
 	    width: 50vw;
 	}
 
@@ -555,7 +559,7 @@ footer{
 }
 
 @media only screen and (min-width: 1000px) {
-	.post, .post-list { 
+	.intro, .post, .post-list { 
 	    width: 40vw;
 	}
 }

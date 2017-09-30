@@ -1,15 +1,10 @@
 {{!< default}}
     <main role="main" class="content">
-        {{#foreach posts}}  
-        <article class="{{post_class}}">
-          <h2><a href="{{url}}" title="{{title}}">{{title}}</a></h2>
-          <!-- <p>{{excerpt}}&hellip;</p> -->
-          
-          <!-- <a class="btn" href="{{url}}" title="{{title}}">Read more &raquo;</a> -->
-
-          <!-- {{> postmeta}} -->
-
+        <article class="intro">
+          <p>I'm a senior product designer with 15 years of experience in the design and tech world. I love to break down users’ complex problems, solve them in a simple way, and make their lives more delightful.</p>
+          <p>Here are a few examples of how I approach design challenges.</p>
         </article>
-        {{/foreach}}
        
     </main>
+
+    {{> post-list}}
