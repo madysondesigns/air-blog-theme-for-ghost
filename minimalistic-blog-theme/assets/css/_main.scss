@@ -654,7 +654,7 @@ footer{
         width: 70vw;
     }
 
-    .intro, .post, .post-list, .post .full-width figcaption { 
+    .intro, .post, .post-list, .post figcaption { 
         width: 50vw;
     }
 
@@ -665,7 +665,7 @@ footer{
 }
 
 @media only screen and (min-width: $break-large) {
-    .intro, .post, .post-list, .post .full-width figcaption { 
+    .intro, .post, .post-list, .post figcaption { 
         width: 40vw;
     }
 }

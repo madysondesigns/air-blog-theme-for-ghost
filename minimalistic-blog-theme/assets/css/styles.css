@@ -862,14 +862,14 @@ footer {
   .home-template, .post-template {
     width: 70vw; }
 
-  .intro, .post, .post-list, .post .full-width figcaption {
+  .intro, .post, .post-list, .post figcaption {
     width: 50vw; }
 
   .post figure.full-width {
     max-width: 70vw;
     margin-left: -35vw; } }
 @media only screen and (min-width: 1000px) {
-  .intro, .post, .post-list, .post .full-width figcaption {
+  .intro, .post, .post-list, .post figcaption {
     width: 40vw; } }
 .ir {
   background-color: transparent;
