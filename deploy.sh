@@ -7,3 +7,8 @@ remote_theme_path=/home/bitnami/apps/ghost/htdocs/content/themes/
 
 
 rsync -avz $local_theme_path -e "ssh -i $ssh_key_file" $remote_server:$remote_theme_path
+
+ssh -i $ssh_key_file $remote_server << ENDSSH
+	cd /home/bitnami/apps/ghost/htdocs
+	sudo ghost restart
+ENDSSH
