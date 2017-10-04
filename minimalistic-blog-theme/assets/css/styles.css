@@ -856,7 +856,7 @@ footer {
     font-size: 1.8rem; }
 
   header {
-    width: 30vw;
+    width: calc(30vw - 2em);
     padding-top: 10em; }
 
   .home-template, .post-template {

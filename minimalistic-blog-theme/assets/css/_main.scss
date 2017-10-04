@@ -646,7 +646,7 @@ footer{
     }
 
     header {
-        width: 30vw;
+        width: calc(30vw - 2em);
         padding-top: 10em;
     }
 
