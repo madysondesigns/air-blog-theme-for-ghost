@@ -1,0 +1,27 @@
+{{#is "post"}}
+	{{#get "posts" filter="id:-{{post.id}}"}}
+		<nav class="post-gallery">
+			{{#foreach posts}}
+				<a href="{{url}}" title="{{title}}" class="gallery-post">
+					<figure class="gallery-image">
+					    <img src="{{img_url feature_image}}" alt="{{title}}">
+					</figure>
+				    <h3>{{title}}</h3>
+				</a>
+			{{/foreach}}
+		</nav>
+	{{/get}}
+{{else}}
+	{{#get "posts"}}
+		<nav class="post-gallery">
+			{{#foreach posts}}  
+			    <a href="{{url}}" title="{{title}}" class="gallery-post">
+					<figure class="gallery-image">
+					    <img src="{{img_url feature_image}}" alt="{{title}}">
+					</figure>
+				    <h3>{{title}}</h3>
+				</a>
+			{{/foreach}}
+		</nav>
+	{{/get}}
+{{/is}}
